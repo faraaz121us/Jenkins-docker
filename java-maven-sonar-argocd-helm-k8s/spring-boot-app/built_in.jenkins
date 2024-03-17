@@ -1,10 +1,20 @@
 pipeline {
-    agent none
+    agent any
+    
     stages {
         stage('Checkout') {
             steps {
-                sh 'echo passed'
-                git branch: 'main', url: 'https://github.com/faraaz121us/Jenkins-docker'
+                script {
+                    try {
+                        // Clone the repository
+                        sh 'git clone -b main https://github.com/faraaz121us/Jenkins-docker'
+                    } catch (Exception e) {
+                        // Print the error message
+                        echo "Failed to clone repository: ${e.message}"
+                        // Mark the build as failed
+                        error "Failed to clone repository"
+                    }
+                }
             }
         }
         stage('Build and Test') {
