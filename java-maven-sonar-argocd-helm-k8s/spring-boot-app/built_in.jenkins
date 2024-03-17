@@ -4,7 +4,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 sh 'echo passed'
-                // git branch: 'main', url: 'https://github.com/faraaz121us/Jenkins-docker'
+                git branch: 'main', url: 'https://github.com/faraaz121us/Jenkins-docker'
             }
         }
         stage('Build and Test') {
