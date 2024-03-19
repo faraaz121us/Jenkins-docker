@@ -14,7 +14,7 @@ pipeline {
                           doGenerateSubmoduleConfigurations: false, 
                           extensions: [], 
                           submoduleCfg: [], 
-                          userRemoteConfigs: [[credentialsId: '<<Github>>', 
+                          userRemoteConfigs: [[credentialsId: '<<faraaz121us>>', 
                                               url: 'https://github.com/faraaz121us/Jenkins-docker.git']]])
             }
         }
