@@ -8,16 +8,11 @@ pipeline {
     
     stages {
         stage('Checkout') {
-            steps {
-                checkout([$class: 'GitSCM', 
-                          branches: [[name: '*/main']], 
-                          doGenerateSubmoduleConfigurations: false, 
-                          extensions: [], 
-                          submoduleCfg: [], 
-                          userRemoteConfigs: [[credentialsId: 'Github', 
-                                              url: 'https://github.com/faraaz121us/Jenkins-docker.git']]])
-            }
-        }
+      steps {
+        sh 'echo passed'
+        //git branch: 'main', url: 'https://github.com/faraaz121us/Jenkins-docker'
+      }
+    }
         
         stage('Build and Test with SonarQube') {
             steps {
