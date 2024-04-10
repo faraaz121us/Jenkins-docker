@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: faraaz1984/faraazrepodockerpublic:37
+        image: faraaz1984/faraazrepodockerpublic:replaceImageTag
         ports:
         - containerPort: 8080
