@@ -17,14 +17,14 @@ pipeline {
                 }
             }
         }
-        stage('Build and Test') {
+        stage('Build with maven') {
             steps {
                 sh 'ls -ltr'
                  //build the project and create a JAR file
                 sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn clean package'
             }
         }
-        stage('Static Code Analysis') {
+        stage('Static Code Analysis with Sonarqube') {
             environment {
                 SONAR_URL = "http://192.168.43.199:9000"
             }
@@ -34,7 +34,7 @@ pipeline {
                 }
             }
         }
-        stage('Build and Push Docker Image') {
+        stage('Build and Push Docker Image to dockerHub') {
               environment {
                     DOCKER_IMAGE = "faraaz1984/faraazrepodockerpublic:${BUILD_NUMBER}"
             // DOCKERFILE_LOCATION = "java-maven-sonar-argocd-helm-k8s/spring-boot-app/Dockerfile"
